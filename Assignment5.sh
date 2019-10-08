@@ -11,3 +11,6 @@ cat "$1" | sort -t ',' -k 4 -n -r | head -n 1 | cut -d , -f 1,2,4
 echo "LOWEST WAGE EARNER:"
 cat "$1" | grep -v gender | sort -t , -k 4 -n | head -n 1 | cut -d , -f 1,2,4
 
+#Returns the number of females in the top ten earners
+echo "NUMBER OF FEMALES IN TOP 10 EARNERS:"
+cat "$1" | sort -t ',' -k 4 -n -r | head -n 10 | grep female | wc -l
