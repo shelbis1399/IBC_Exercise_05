@@ -17,6 +17,5 @@ cat "$1" | sort -t ',' -k 4 -n -r | head -n 10 | grep female | wc -l
 
 # This is the third part of the assignment
 # This greps those with 16 years experience
-collegenumber=$(cat "$1" | grep -v gender | sort -t , -k 4 -n | grep -E "[0-9],16," | wc -l)
-totalcollegewages=$(cat "$1" | grep -v gender | sort -t , -k 4 -n | grep -E "[0-9],16," | cut -d , -f 4 | tr '\n' '+' | sed 's/+$//' | bc)
-echo $totalcollegewages
+collegeminima=$(cat "$1" | grep -v gender | sort -t , -k 4 -n | grep -E "[0-9],16," | cut -d ',' -f 4 | head -n 1)
+echo $collegeminima
