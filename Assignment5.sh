@@ -18,9 +18,4 @@ cat "$1" | sort -t ',' -k 4 -n -r | head -n 10 | grep female | wc -l
 # This is the third part of the assignment
 # This greps those with 16 years experience
 collegeminima=$(cat "$1" | grep -v gender | sort -t , -k 4 -n | grep -E "[0-9],16," | cut -d ',' -f 4 | head -n 1)
-highschoolminima=$(cat "$1" | grep -v gender | sort -t , -k 4 -n | grep -E "[0-9],12," | cut -d ',' -f 4 | head -n 1)
 echo $collegeminima
-echo $highschoolminima
-echo "The difference between college minimum wage and high school minimum wage is"
-echo "$collegeminima - $highschoolminima" | tr -d $'\r' | bc
-echo $difference
