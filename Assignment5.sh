@@ -1,5 +1,8 @@
 # This is the Exercise 5 answers.
 # Usage: bash Assignment5.sh "wages.csv"
+#This is the first part of the assignment by yours truly, shel 
+#Returns unique gender and years experience pairs and places them in file
+cat wages.csv | sed 's/,/ /g' | cut -d ' ' -f 1,2 | grep -v 'gender' | sort -k 1,1 -k 2,2n | uniq >> gender+yearsexperience.txt
 
 
 # This is the second part of the assignment
